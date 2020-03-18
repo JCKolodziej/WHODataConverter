@@ -1,13 +1,11 @@
 import play.api.libs.json.{JsValue, Json}
 
-object dataRetriver extends App{
+object dataRetriever extends App{
+    def getDataFromUrl(url : String) : JsValue = {
+      val result = scala.io.Source.fromURL(url).mkString
+      Json.parse(result)
 
-  val url = "https://ghoapi.azureedge.net/api/DIMENSION/COUNTRY/DimensionValues"
-  val result = scala.io.Source.fromURL(url).mkString
-  println(result)
-  val json: JsValue = Json.parse(result)
-  val whatever = (json \ "value")
-  println(whatever)
-  println(whatever(0)("Title"))
+    }
+
 
 }
