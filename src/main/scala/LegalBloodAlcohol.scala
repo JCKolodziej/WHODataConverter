@@ -10,17 +10,17 @@ object LegalBloodAlcohol {
   val levelRead = Json.reads[bloodLevel]
   var legalBloodLevelList = new ListBuffer[bloodLevel]
 
-  val minAgeFromJson: JsResult[jsonValues] =
+  val limitFromJson: JsResult[jsonValues] =
     Json.fromJson[jsonValues](legalBloodResponse)(jsonsRead)
 
-  minAgeFromJson match {
+  limitFromJson match {
     case JsSuccess(r: jsonValues, path: JsPath) =>
       for (i <- 0 to r.value.length - 1) {
-        getMinAgeToList(r.value(i))
+        getLimitToList(r.value(i))
       }
   }
 
-  def getMinAgeToList(age : JsValue) = {
+  def getLimitToList(age : JsValue) = {
     val ageFromList : JsResult[bloodLevel] =
       Json.fromJson[bloodLevel](age)(levelRead)
     ageFromList match{
