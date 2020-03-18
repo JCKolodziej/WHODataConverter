@@ -7,4 +7,5 @@ object Main extends App {
 //  AveragePrice.avgPriceList.foreach(level => println(level.SpatialDim + " " + level.Dim1 + " " + level.Value))
 //  AlcoholTax.taxList.foreach(age => println(age.SpatialDim + " " + age.Value))
 //  Consumption.consumptionList.foreach(level => println(level.SpatialDim + " " + level.Dim1 + " " + level.Value))
+  CountryData.countryDataList.foreach(x => println(x.Name + x.AvgPriceForBeer))
 }
